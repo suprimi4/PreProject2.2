@@ -17,7 +17,7 @@ import java.util.List;
 @Controller
 @RequestMapping("/cars")
 public class CarController {
-    @Value("${maxCars}")
+    @Value("${car.config.maxCars}")
     private Integer maxCars;
     private final CarService carService;
 

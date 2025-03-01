@@ -12,29 +12,20 @@ public class Car {
     private String mark;
     private String model;
     private int yearOfManufacture;
+    private int cost;
+    @OneToOne(mappedBy = "car")
+    private User user;
 
     public Car() {
     }
 
-    public Car(int id, String mark, String model, int yearOfManufacture) {
-        this.id = id;
+
+
+    public Car(String mark, String model, int yearOfManufacture, int cost) {
         this.mark = mark;
         this.model = model;
         this.yearOfManufacture = yearOfManufacture;
-    }
-
-    public Car(String mark, String model, int yearOfManufacture) {
-        this.mark = mark;
-        this.model = model;
-        this.yearOfManufacture = yearOfManufacture;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
+        this.cost = cost;
     }
 
     public String getMark() {
@@ -59,5 +50,25 @@ public class Car {
 
     public void setYearOfManufacture(int yearOfManufacture) {
         this.yearOfManufacture = yearOfManufacture;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public int getCost() {
+        return cost;
+    }
+
+    public void setCost(int cost) {
+        this.cost = cost;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }
