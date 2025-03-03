@@ -4,7 +4,8 @@ import com.suprimi4.boot.model.Car;
 
 import java.util.List;
 
+
 public interface CarService {
 
-    List<Car> getListOfCarsByCount(Integer count);
+    List<Car> getListOfCarsByCount(Integer count, String typeSort);
 }
