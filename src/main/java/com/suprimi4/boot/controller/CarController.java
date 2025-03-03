@@ -17,8 +17,7 @@ import java.util.List;
 @Controller
 @RequestMapping("/cars")
 public class CarController {
-    @Value("${maxCars}")
-    private Integer maxCars;
+
     private final CarService carService;
 
     @Autowired
@@ -28,9 +27,7 @@ public class CarController {
 
     @GetMapping
     public String getCars(@RequestParam(value = "count", required = false) Integer count, Model model) {
-        if (count == null || count > maxCars) {
-            count = maxCars;
-        }
+
 
         List<Car> cars = carService.getListOfCarsByCount(count);
         model.addAttribute("cars", cars);
