@@ -28,7 +28,8 @@ public class CarServiceImpl implements CarService {
 
 
     @Override
-    public List<Car> getListOfCarsByCount(Integer count, String typeSort) {
+    public List<Car> getListOfCarsByCount(Integer count,
+                                          String typeSort) {
 
         if (typeSort != null && !sorts.contains(typeSort)) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Сортировка недопустима");
