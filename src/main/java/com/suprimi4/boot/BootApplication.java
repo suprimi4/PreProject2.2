@@ -13,26 +13,10 @@ import org.springframework.web.client.RestTemplate;
 @SpringBootApplication
 
 public class BootApplication {
-    private UserFetcher userFetcher;
-
-    private CarRepository carRepository;
-
-
-    private UserRepository userRepository;
 
     public static void main(String[] args) {
         SpringApplication.run(BootApplication.class, args);
     }
-
-    public BootApplication(@Lazy UserFetcher userFetcher, CarRepository carRepository, UserRepository userRepository) {
-        this.userFetcher = userFetcher;
-        this.carRepository = carRepository;
-        this.userRepository = userRepository;
-
-    }
-
-
-
 
     @Bean
     public RestTemplate getRestTemplate() {

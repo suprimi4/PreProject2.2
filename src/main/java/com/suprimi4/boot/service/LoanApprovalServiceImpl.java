@@ -6,8 +6,6 @@ import com.suprimi4.boot.model.Car;
 import com.suprimi4.boot.repository.UserRepository;
 import com.suprimi4.boot.repsonse.LoanApprovalResponse;
 import jakarta.annotation.PostConstruct;
-
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 import com.suprimi4.boot.model.User;
 

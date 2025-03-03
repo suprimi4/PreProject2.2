@@ -2,29 +2,19 @@ package com.suprimi4.boot.repsonse;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 
+@NoArgsConstructor(force = true)
+@RequiredArgsConstructor
+@Getter
+@Setter
 public class LoanApprovalResponse {
-    private Integer userId;
-    private double maxLoan;
+    private final Integer userId;
+    private final double maxLoan;
 
-    public Integer getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Integer userId) {
-        this.userId = userId;
-    }
-
-    public double getMaxLoan() {
-        return maxLoan;
-    }
-
-    public void setMaxLoan(double maxLoan) {
-        this.maxLoan = maxLoan;
-    }
-
-    public LoanApprovalResponse() {
-    }
 
     public LoanApprovalResponse(int userId, double maxLoan) {
         this.userId = userId;

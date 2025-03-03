@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/loan")
 public class LoanApprovalController {
-    private LoanApprovalServiceImpl loanApprovalServiceImpl;
+    private final LoanApprovalServiceImpl loanApprovalServiceImpl;
 
     public LoanApprovalController(LoanApprovalServiceImpl loanApprovalServiceImpl) {
         this.loanApprovalServiceImpl = loanApprovalServiceImpl;
