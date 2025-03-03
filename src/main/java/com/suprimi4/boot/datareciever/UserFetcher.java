@@ -1,34 +1,27 @@
-package com.suprimi4.boot.dataReciever;
+package com.suprimi4.boot.datareciever;
 
 import com.suprimi4.boot.model.User;
-import com.suprimi4.boot.repository.UserRepository;
-import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
-
 @Component
-public class UserReciever {
+public class UserFetcher {
+
     private final RestTemplate restTemplate;
-    private final UserRepository userRepository;
+
     @Value("${sources.url}")
     private String url;
 
-
-    public UserReciever(RestTemplate restTemplate, UserRepository userRepository) {
+    public UserFetcher(RestTemplate restTemplate) {
         this.restTemplate = restTemplate;
-        this.userRepository = userRepository;
     }
 
-    @PostConstruct
-    @Transactional
-    public void fetchUsers() {
+    public List<User> fetch() {
         ResponseEntity<List<User>> response = restTemplate.exchange(
                 url,
                 HttpMethod.GET,
@@ -36,7 +29,7 @@ public class UserReciever {
                 new ParameterizedTypeReference<>() {
                 }
         );
-        List<User> jsonObjects = response.getBody();
-        userRepository.saveAll(jsonObjects);
+
+        return response.getBody();
     }
 }
