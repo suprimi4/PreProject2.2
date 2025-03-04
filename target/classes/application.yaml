@@ -15,9 +15,11 @@ car:
     maxCars: 5
     sortBy: mark,model,yearOfManufacture
 
-sources:
-
 
 loan:
   minimalincome: 40000
   minumalcarcost: 1000000
+
+income:
+
+    url: "https://66055cd12ca9478ea1801f2e.mockapi.io/api/users/income"
