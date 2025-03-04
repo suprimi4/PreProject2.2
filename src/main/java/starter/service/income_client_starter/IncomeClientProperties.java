@@ -7,10 +7,14 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 @ConfigurationProperties(prefix = "income.client")
 public class IncomeClientProperties {
 
-    private final String url = "https://66055cd12ca9478ea1801f2e.mockapi.io/api/users/income";
+    private String url;
 
     public String getUrl() {
         return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 }
 
