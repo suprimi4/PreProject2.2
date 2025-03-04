@@ -4,8 +4,6 @@ package starter.service.income_client_starter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 
-
-
 @ConfigurationProperties(prefix = "income.client")
 public class IncomeClientProperties {
 

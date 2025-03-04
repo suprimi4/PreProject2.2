@@ -19,8 +19,6 @@ public class IncomeClientAutoConfiguration {
         return new RestTemplate();
     }
 
-    private IncomeClientProperties properties;
-
     @Bean
     @ConditionalOnMissingBean(IncomeClient.class)
     public IncomeClient incomeClient(RestTemplate restTemplate, IncomeClientProperties properties) {

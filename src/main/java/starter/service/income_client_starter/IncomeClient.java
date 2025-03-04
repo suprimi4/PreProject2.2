@@ -9,7 +9,6 @@ import org.springframework.core.ParameterizedTypeReference;
 import java.util.List;
 
 
-
 public class IncomeClient {
 
     private final RestTemplate restTemplate;
