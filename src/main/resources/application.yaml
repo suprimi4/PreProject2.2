@@ -18,7 +18,8 @@ car:
 
 loan:
   minimalincome: 40000
-  minumalcarcost: 1000000
+  minimalcarcost: 1000000
+
 
 income:
   client:

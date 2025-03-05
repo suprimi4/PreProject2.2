@@ -1,6 +1,6 @@
 com/suprimi4/boot/controller/CarController.class
+com/suprimi4/boot/BootApplication.class
 com/suprimi4/boot/model/User.class
 com/suprimi4/boot/service/CarService.class
 com/suprimi4/boot/controller/LoanApprovalController.class
-com/suprimi4/boot/BootApplication.class
 com/suprimi4/boot/model/Car.class

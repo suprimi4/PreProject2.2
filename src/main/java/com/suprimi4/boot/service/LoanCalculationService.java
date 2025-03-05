@@ -1,22 +1,21 @@
 package com.suprimi4.boot.service;
 
-
-import org.springframework.beans.factory.annotation.Value;
+import com.suprimi4.boot.properties.LoanProperties;
 
 import org.springframework.stereotype.Service;
 
 @Service
 public class LoanCalculationService {
-    @Value("${loan.minimalincome}")
-    private  int minimalIncome;
-    @Value("${loan.minumalcarcost}")
-    private  int minimalCarCost;
 
+    private final LoanProperties loanProperties;
 
+    public LoanCalculationService(LoanProperties loanProperties) {
+        this.loanProperties = loanProperties;
+    }
 
     public Double calculateMaxLoan(int userIncome, int carCost) {
-        double maxLoanByIncome = userIncome > minimalIncome ? (double) (userIncome * 12) / 2 : 0;
-        double maxLoanByCar = carCost > minimalCarCost ? carCost * 0.3 : 0;
+        double maxLoanByIncome = userIncome > loanProperties.getMinimalIncome() ? (double) (userIncome * 12) / 2 : 0;
+        double maxLoanByCar = carCost > loanProperties.getMinimalCarCost() ? carCost * 0.3 : 0;
 
         return Math.max(maxLoanByCar, maxLoanByIncome);
     }

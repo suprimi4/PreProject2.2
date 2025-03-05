@@ -18,8 +18,9 @@ car:
 
 loan:
   minimalincome: 40000
-  minumalcarcost: 1000000
+  minimalcarcost: 1000000
+
 
 income:
-
+  client:
     url: "https://66055cd12ca9478ea1801f2e.mockapi.io/api/users/income"

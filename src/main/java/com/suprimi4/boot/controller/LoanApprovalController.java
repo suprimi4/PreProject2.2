@@ -3,8 +3,8 @@ package com.suprimi4.boot.controller;
 
 import com.suprimi4.boot.repsonse.LoanApprovalResponse;
 import com.suprimi4.boot.service.LoanApprovalServiceImpl;
-import jakarta.servlet.http.HttpServletResponse;
-
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -20,13 +20,13 @@ public class LoanApprovalController {
     }
 
     @GetMapping
-    public LoanApprovalResponse getLoanResponse(@RequestParam("userId") Integer id, HttpServletResponse response) {
+    public ResponseEntity<Double> getLoanResponse(@RequestParam("userId") Integer id) {
         LoanApprovalResponse loanResponse = loanApprovalServiceImpl.loanApprove(id);
 
         if (loanResponse.isEmpty()) {
-            response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-        return loanResponse;
+        return new ResponseEntity<>(loanResponse.getMaxLoan(), HttpStatus.OK);
     }
 
 
